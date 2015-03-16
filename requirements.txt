@@ -1,0 +1,8 @@
+robo
+-e git://github.com/heavenshell/py-robo-cron.git#egg=robo.handlers.cron
+-e git://github.com/heavenshell/py-robo-lgtm.git#egg=robo.handlers.lgtm
+-e git://github.com/heavenshell/py-robo-google_image.git#egg=robo.handlers.google_image
+sleekxmpp
+dnspython
+pyasn1
+pyasn1_modules
