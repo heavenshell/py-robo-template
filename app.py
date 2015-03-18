@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-    main
-    ~~~~
+    app
+    ~~~
 
     Endpoint of robo.
 
@@ -24,7 +24,7 @@ def main(args=None):
     logging.basicConfig(level=args.verbose, format=Robot.debug_log_format)
     logger = logging.getLogger('robo')
 
-    options = {'cron': {'jobstore': 'redis'}}
+    options = {'cron': {'jobstore': 'redis', 'options': {'alias': args.name}}}
     robot = Robot(name=args.name, logger=logger, **options)
     path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                         'my', 'handlers')
@@ -41,7 +41,7 @@ def parse_options():
     parser = argparse.ArgumentParser(description=description, add_help=False)
     parser.add_argument('-a', '--adapter', default='shell')
     parser.add_argument('-u', '--name', default='robo')
-    parser.add_argument('-vv', '--verbose', default=logging.INFO, nargs='?',
+    parser.add_argument('-vv', '--verbose', default=logging.ERROR, nargs='?',
                         const=logging.DEBUG)
 
     args = parser.parse_args()
